@@ -45,7 +45,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-font',
       {
-        fonts: ['./assets/fonts/Inter.ttf'],
+        fonts: [
+          './assets/fonts/ZedPlexSans-Bold.ttf',
+          './assets/fonts/ZedPlexSans-BoldItalic.ttf',
+          './assets/fonts/ZedPlexSans-Italic.ttf',
+          './assets/fonts/ZedPlexSans-Regular.ttf',
+          './assets/fonts/Inter.ttf',
+        ],
       },
     ],
     'expo-localization',

@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        zed: ['Zed Plex Sans'],
         inter: ['Inter'],
       },
       colors,

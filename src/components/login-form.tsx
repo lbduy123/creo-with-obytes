@@ -38,7 +38,10 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
       keyboardVerticalOffset={10}
     >
       <View className="flex-1 justify-center p-4">
-        <Text testID="form-title" className="pb-6 text-center text-2xl">
+        <Text
+          testID="form-title"
+          className="pb-6 text-center font-zed text-2xl"
+        >
           Sign In
         </Text>
 
