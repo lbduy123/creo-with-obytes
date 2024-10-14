@@ -37,8 +37,8 @@ require('dotenv').config({
 const BUNDLE_ID = 'com.creo'; // ios bundle id
 const PACKAGE = 'com.creo'; // android package name
 const NAME = 'Creo'; // app name
-const EXPO_ACCOUNT_OWNER = 'expo-owner'; // expo account owner
-const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // eas project id
+const EXPO_ACCOUNT_OWNER = 'duylam.vietkite'; // expo account owner
+const EAS_PROJECT_ID = 'fc96c4cc-2796-4e23-aef3-174908e39ce8'; // eas project id
 const SCHEME = 'Creo'; // app scheme
 
 /**
@@ -82,6 +82,8 @@ const client = z.object({
   API_URL: z.string(),
   VAR_NUMBER: z.number(),
   VAR_BOOL: z.boolean(),
+  EXPO_PUBLIC_SUPABASE_URL: z.string(),
+  EXPO_PUBLIC_SUPABASE_ANON_KEY: z.string(),
 });
 
 const buildTime = z.object({
@@ -106,6 +108,8 @@ const _clientEnv = {
   API_URL: process.env.API_URL,
   VAR_NUMBER: Number(process.env.VAR_NUMBER),
   VAR_BOOL: process.env.VAR_BOOL === 'true',
+  EXPO_PUBLIC_SUPABASE_URL: process.env.EXPO_PUBLIC_SUPABASE_URL,
+  EXPO_PUBLIC_SUPABASE_ANON_KEY: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
 };
 
 /**
@@ -138,10 +142,10 @@ if (parsed.success === false) {
     parsed.error.flatten().fieldErrors,
 
     `\n❌ Missing variables in .env.${APP_ENV} file, Make sure all required variables are defined in the .env.${APP_ENV} file.`,
-    `\n💡 Tip: If you recently updated the .env.${APP_ENV} file and the error still persists, try restarting the server with the -c flag to clear the cache.`
+    `\n💡 Tip: If you recently updated the .env.${APP_ENV} file and the error still persists, try restarting the server with the -c flag to clear the cache.`,
   );
   throw new Error(
-    'Invalid environment variables, Check terminal for more details '
+    'Invalid environment variables, Check terminal for more details ',
   );
 }
 

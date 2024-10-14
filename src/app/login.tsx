@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
 
+import Auth from '@/components/auth';
 import type { LoginFormProps } from '@/components/login-form';
 import { LoginForm } from '@/components/login-form';
 import { useAuth } from '@/core';
@@ -19,6 +20,7 @@ export default function Login() {
     <>
       <FocusAwareStatusBar />
       <LoginForm onSubmit={onSubmit} />
+      <Auth />
     </>
   );
 }
