@@ -38,12 +38,12 @@ jobs:
       - name: 📦 Setup Node + PNPM + install deps
         uses: ./.github/actions/setup-node-pnpm-install
 
-      - name: Create envfile
-        uses: ./.github/actions/create-env-file
+      - name: Create env file
+        uses: SpicyPizza/create-envfile@v2.0
         with:
-          APP_ENV: staging
-          SECRETS: ${{ secrets }}
-          VARS: ${{ vars }}
+          envkey_EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          envkey_EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+          file_name: .env.staging
 
       - name: ⏱️ EAS Build
         uses: ./.github/actions/eas-build
