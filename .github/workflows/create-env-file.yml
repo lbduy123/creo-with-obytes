@@ -1,0 +1,29 @@
+name: Create .env.development
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  create-env:
+    name: Create .env.development
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: 📦 Checkout project repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node + PNPM + install deps
+        uses: ./.github/actions/setup-node-pnpm-install
+
+      - name: Create env file
+        uses: ./.github/actions/create-env-file
+        with:
+          APP_ENV: development
+
+      - name: Run prebuild
+        run: pnpm run prebuild

@@ -37,7 +37,7 @@ require('dotenv').config({
 const BUNDLE_ID = 'com.creo'; // ios bundle id
 const PACKAGE = 'com.creo'; // android package name
 const NAME = 'Creo'; // app name
-const EXPO_ACCOUNT_OWNER = 'duylam.vietkite'; // expo account owner
+const EXPO_ACCOUNT_OWNER = 'creo-dev'; // expo account owner
 const EAS_PROJECT_ID = 'fc96c4cc-2796-4e23-aef3-174908e39ce8'; // eas project id
 const SCHEME = 'Creo'; // app scheme
 
