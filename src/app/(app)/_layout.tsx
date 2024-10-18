@@ -2,7 +2,7 @@
 import { Link, Redirect, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 
-import { useAuth, useIsFirstTime } from '@/core';
+import { useAuth, useIsFirstTime, useNotification } from '@/core';
 import { Pressable, Text } from '@/ui';
 import {
   Feed as FeedIcon,
@@ -12,6 +12,8 @@ import {
 
 export default function TabLayout() {
   const status = useAuth.use.status();
+  const { expoPushToken } = useNotification();
+  console.log(expoPushToken);
   const [isFirstTime] = useIsFirstTime();
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
