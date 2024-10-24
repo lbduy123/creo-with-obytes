@@ -6,6 +6,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@env": ["./src/core/env.js"]
+      // "@generated/*": [
+      //   "./src/__generated__/*"
+      // ],
     },
     "esModuleInterop": true,
     "checkJs": true

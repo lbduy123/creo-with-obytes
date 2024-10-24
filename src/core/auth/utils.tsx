@@ -1,6 +1,7 @@
 import { getItem, removeItem, setItem } from '@/core/storage';
 
 const TOKEN = 'token';
+export const USER_ID = 'user_id';
 
 export type TokenType = {
   access: string;

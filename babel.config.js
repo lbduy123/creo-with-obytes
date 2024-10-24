@@ -13,6 +13,7 @@ module.exports = function (api) {
           alias: {
             '@': './src',
             '@env': './src/core/env.js',
+            // '@generated': './src/__generated__',
           },
           extensions: [
             '.ios.ts',
@@ -27,6 +28,8 @@ module.exports = function (api) {
           ],
         },
       ],
+      'relay',
+      'macros',
       'react-native-reanimated/plugin',
     ],
   };
