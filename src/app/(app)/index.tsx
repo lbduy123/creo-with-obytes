@@ -13,7 +13,6 @@ import { EmptyList, FocusAwareStatusBar, Text, View } from '@/ui';
 export default function Feed() {
   const userId = getItem<string>(USER_ID);
   const profileRes = useGetProfileByUserId(userId);
-  console.log({ profileNode: profileRes.profileCollection?.edges[0].node });
 
   const profile = useFragment(
     ProfileFragment,

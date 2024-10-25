@@ -11,9 +11,11 @@ export default function Login() {
   const router = useRouter();
   const signIn = useAuth.use.signIn();
 
-  const onSubmit: LoginFormProps['onSubmit'] = (data) => {
-    console.log(data);
-    signIn({ access: 'access-token', refresh: 'refresh-token' }, '');
+  const onSubmit: LoginFormProps['onSubmit'] = (_) => {
+    signIn({
+      token: { access: 'access-token', refresh: 'refresh-token' },
+      userId: '',
+    });
     router.push('/');
   };
   return (

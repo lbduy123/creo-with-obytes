@@ -8,6 +8,15 @@ export type TokenType = {
   refresh: string;
 };
 
+export type AuthType = {
+  userId: string;
+  token: TokenType;
+};
+
 export const getToken = () => getItem<TokenType>(TOKEN);
 export const removeToken = () => removeItem(TOKEN);
 export const setToken = (value: TokenType) => setItem<TokenType>(TOKEN, value);
+
+export const getUserId = () => getItem<string>(USER_ID);
+export const removeUserId = () => removeItem(USER_ID);
+export const setUserId = (value: string) => setItem<string>(USER_ID, value);

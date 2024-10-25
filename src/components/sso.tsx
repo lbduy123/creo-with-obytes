@@ -23,14 +23,15 @@ export default function Sso() {
   const router = useRouter();
   const signIn = useAuth.use.signIn();
   const [userId, setUserId] = useState<string>('');
-  const [signedIn, setSignedIn] = useState<boolean>(false);
   const [metadata, setMetadata] = useState<null | UserMetadata>(null);
 
   const res = useGetProfileByUserId(userId);
 
   useEffect(() => {
-    if (signedIn) {
+    if (userId) {
+      // Signed in
       if (!res.profileCollection?.edges.length) {
+        // Profile not created yet
         router.navigate({
           pathname: '/account-creation',
           params: {
@@ -42,12 +43,14 @@ export default function Sso() {
           },
         });
       } else {
-        signIn({ access: 'access-token', refresh: 'refresh-token' }, userId);
+        signIn({
+          token: { access: 'access-token', refresh: 'refresh-token' },
+          userId,
+        });
         router.navigate('/');
       }
     }
   }, [
-    signedIn,
     router,
     metadata,
     userId,
@@ -70,10 +73,9 @@ export default function Sso() {
         if (error) {
           throw error;
         }
-        // refresh();
+        console.log({ data });
         setUserId(data.user?.id);
         setMetadata(data.user?.user_metadata);
-        setSignedIn(true);
       } else {
         throw new Error('no ID token present!');
       }
@@ -94,7 +96,7 @@ export default function Sso() {
   return (
     <GoogleSigninButton
       size={GoogleSigninButton.Size.Wide}
-      color={GoogleSigninButton.Color.Dark}
+      color={GoogleSigninButton.Color.Light}
       onPress={async () => handleLogin()}
     />
   );

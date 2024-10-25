@@ -1,4 +1,3 @@
-// import { type accountCreationMutation } from '@/accountCreationMutation.graphql';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
 
@@ -31,10 +30,10 @@ export default function AccountCreation() {
       },
       onCompleted(response, errors) {
         console.log({ response, errors });
-        signIn(
-          { access: 'access-token', refresh: 'refresh-token' },
-          user_id as string,
-        );
+        signIn({
+          token: { access: 'access-token', refresh: 'refresh-token' },
+          userId: user_id as string,
+        });
         router.navigate('/');
       },
     });
